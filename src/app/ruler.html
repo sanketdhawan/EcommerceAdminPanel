@@ -1,0 +1,77 @@
+<div class="ruler">
+  <div><span>0</span></div>
+
+  <div><span>5</span></div>
+
+  <div><span>10</span></div>
+
+  <div><span>15</span></div>
+
+  <div><span>20</span></div>
+
+  <div><span>25</span></div>
+  <div><span>30</span></div>
+  <div><span>30</span></div>
+  <div><span>30</span></div>
+  <div><span>30</span></div>
+  <div><span>30</span></div>
+  <div><span>30</span></div>
+  <div><span>30</span></div>
+</div>
+<style>
+  .ruler {
+    border-left: 0;
+    position: relative;
+  }
+
+  .ruler > div {
+    line-height: 0.8;
+    font-size: 35px;
+    padding: 0 0 0 40px;
+    position: relative;
+    margin: 0 0 50px;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .ruler > div:last-child:before {
+    display: none;
+  }
+
+  .ruler > div:before {
+    background: #fff;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: -5px;
+    z-index: 1;
+    width: 6px;
+    bottom: -50px;
+  }
+
+  .ruler > div:nth-child(2n + 1):before {
+    background: black;
+  }
+
+  .ruler > div:after {
+    content: "";
+    height: 1px;
+    background: #000;
+    width: 30px;
+    left: 0;
+    position: absolute;
+    top: -1px;
+  }
+
+  .ruler:before {
+    position: absolute;
+    content: "";
+    left: -6px;
+    width: 6px;
+    top: -1px;
+    bottom: 78px;
+    border: 1px solid #000;
+    z-index: 15;
+  }
+</style>

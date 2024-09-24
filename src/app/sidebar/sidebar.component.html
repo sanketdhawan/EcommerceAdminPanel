@@ -1,0 +1,20 @@
+<ul class="sidebar-menu">
+  <li *ngFor="let item of menuItems" [ngClass]="{ active: item.isActive }">
+    <a [href]="item.link || 'javascript:void(0)'" class="sidebar-header">
+      <!-- <svg
+        xmlns="http://www.w3.org/2000/svg"
+        [attr.class]="'feather ' + item.icon"
+      ></svg> -->
+      <span>{{ item.title }}</span>
+      <i *ngIf="item.children" class="fa fa-angle-right pull-right"></i>
+    </a>
+    <ul class="sidebar-submenu" *ngIf="item.children">
+      <li *ngFor="let child of item.children">
+        <a [href]="child.link || 'javascript:void(0)'">
+          <i class="fa fa-circle"></i>{{ child.title }}
+        </a>
+        <!-- Repeat for nested children if needed -->
+      </li>
+    </ul>
+  </li>
+</ul>
