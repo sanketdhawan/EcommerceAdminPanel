@@ -3,37 +3,14 @@
 <div class="container-fluid pb-3">
   <div class="d-grid gap-3" style="grid-template-columns: 2fr 10fr">
     <div class="bg-light border rounded-3">
-      <!-- @for (user of users; track users;) {
-        <app-user [name]="user.name" [avatar]="users[0].avatar" [nameX]="namex"></app-user>
+      @for(user of users; track user.id){
+      <app-user [User]="user" (selectUser)="onSelectUser($event)" />
       }
-      <app-user  /> -->
-      <app-user
-        [name]="users[1].name"
-        [avatar]="users[1].avatar"
-        [nameX]="namex"
-        [id]="users[1].id"
-        (selectUser)="onSelectUser($event)"
-      />
-      <app-user
-        [name]="users[2].name"
-        [avatar]="users[2].avatar"
-        [nameX]="namex"
-        [id]="users[2].id"
-        (selectUser)="onSelectUser($event)"
-      />
-      <app-user
-        [name]="users[3].name"
-        [avatar]="users[3].avatar"
-        [nameX]="namex"
-        [id]="users[3].id"
-        (selectUser)="onSelectUser($event)"
-      />
-      <div>{{ namex }}</div>
 
       <app-sidebar />
     </div>
     <div class="bg-light border rounded-3">
-      <app-recive-user-names [nameSend]="selectedUser.name"  />
+      <app-recive-user-names [nameSend]="selectedUser.name" />
       <router-outlet />
     </div>
   </div>
@@ -42,7 +19,4 @@
 <div>{{ textName }}</div>
 
 <app-footer [DataName]="stringName" [ArrayNew]="users[0].name" />
-<app-footer
-  [DataName]="stringName"
-  [ArrayNew]="users[1].name"
-/>
+<app-footer [DataName]="stringName" [ArrayNew]="users[1].name" />

@@ -10,6 +10,11 @@ import {
 // import { DUMMY_USERS } from '../data/users';
 
 // const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
+interface User{
+  id: string;
+  name: string;
+  avatar: string;
+ }
 
 @Component({
   selector: 'app-user',
@@ -18,12 +23,14 @@ import {
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
 })
+
+
 export class UserComponent {
   // users = DUMMY_USERS[randomIndex];
 
-  @Input() id!: string;
-  @Input() name!: string;
-  @Input() avatar!: string;
+  
+@Input() User!:User;
+
   @Input() nameX!: string;
 
   @Output() selectUser = new EventEmitter<string>();
@@ -43,10 +50,10 @@ export class UserComponent {
   // });
 
   get imagePath() {
-    return 'assets/users/' + this.avatar;
+    return 'assets/users/' + this.User.avatar;
   }
 
   onclickUsers() {
-    this.selectUser.emit(this.id);
+    this.selectUser.emit(this.User.id);
   }
 }
