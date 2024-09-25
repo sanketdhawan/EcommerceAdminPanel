@@ -1,18 +1,4 @@
 <ul class="sidebar-menu">
-  <li *ngFor="let item of menuItems" [ngClass]="{ active: item.isActive }">
-    <a [href]="item.link || 'javascript:void(0)'" class="sidebar-header">
-      <span>{{ item.title }}</span>
-      <i *ngIf="item.children" class="fa fa-angle-right pull-right"></i>
-    </a>
-    <ul class="sidebar-submenu" *ngIf="item.children">
-      <li *ngFor="let child of item.children">
-        <a [href]="child.link || 'javascript:void(0)'">
-          <i class="fa fa-circle"></i>{{ child.title }}
-        </a>
-      </li>
-    </ul>
-  </li>
-
   @for (item of menuItems; track item.title) {
   <li>
     <a href="javascript:void(0)">
