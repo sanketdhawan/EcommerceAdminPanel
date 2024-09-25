@@ -9,6 +9,7 @@ import { UserComponent } from './user/user.component';
 import { DUMMY_USERS, nameX } from './data/userdata/users';
 import { FooterComponent } from './footer/footer.component';
 import { ReciveUserNamesComponent } from './user/recive-user-names/recive-user-names.component';
+import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,8 @@ import { ReciveUserNamesComponent } from './user/recive-user-names/recive-user-n
     UserComponent,
     FooterComponent,
     ReciveUserNamesComponent,
-  ],
+    DashboardComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -30,7 +32,7 @@ export class AppComponent {
   users = DUMMY_USERS;
   namex = nameX;
 
-  selectedUserId = 'u1';
+  selectedUserId = '';
   stringName = 'Dhawan';
 
   data: SidebarItem[] = SIDEBAR_MENU;
@@ -39,7 +41,7 @@ export class AppComponent {
 
 
   get selectedUser() {
-    return this.users.find((user) => user.id === this.selectedUserId)!;
+    return this.users.find((user) => user.id === this.selectedUserId);
   }
 
   onSelectUser(id: string) {

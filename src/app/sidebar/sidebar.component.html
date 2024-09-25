@@ -4,9 +4,12 @@
     <a href="javascript:void(0)">
       <span [attr.class]="'feather ' + item.icon"></span>
       <span>{{ item.title }}</span>
-      <i *ngIf="item.children" class="fa fa-angle-right pull-right">imicon</i>
+      @if (item.children) {
+      <i class="fa fa-angle-right pull-right">imicon</i>
+      }
     </a>
-    <ul class="sidebar-submenu" *ngIf="item.children">
+    @if (item.children) {
+    <ul class="sidebar-submenu">
       @for (child of item.children; track child.title) {
       <li>
         <a href="javascript:void(0)">
@@ -15,6 +18,7 @@
       </li>
       }
     </ul>
+    }
   </li>
   }
 </ul>

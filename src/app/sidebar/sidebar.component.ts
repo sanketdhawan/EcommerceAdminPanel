@@ -19,7 +19,7 @@ export class SidebarComponent {
   menuItems: SidebarItem[] = SIDEBAR_MENU;
 
   @Input() name!:string;
-child: any;
+
 
 
 

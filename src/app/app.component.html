@@ -9,9 +9,14 @@
 
       <app-sidebar />
     </div>
-    <div class="bg-light border rounded-3">
-      <app-recive-user-names [nameSend]="selectedUser.name" />
+    <div class="bg-light border rounded-3 p-3">
+      @if (selectedUser) {
+      <app-recive-user-names u [nameSend]="selectedUser.name" />
+      } @else {
+        <p>No User Selected</p>
+      }
       <router-outlet />
+      <app-dashboard />
     </div>
   </div>
 </div>
