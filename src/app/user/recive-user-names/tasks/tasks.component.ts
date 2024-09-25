@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { dummyTasks } from '../../data/userdata/users';
+import { dummyTasks } from '../../../data/userdata/users';
 @Component({
   selector: 'app-tasks',
   standalone: true,
@@ -14,8 +14,8 @@ export class TasksComponent {
   @Input() userId!: string;
 
 
-
-  get selectedUsersTasks(){
-      return this.tasks.filter((task)=> task.userId === task.userId)
+  ngAfterViewChecked(): void {
+    console.log(this.task)
   }
+
 }

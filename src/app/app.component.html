@@ -11,7 +11,7 @@
     </div>
     <div class="bg-light border rounded-3 p-3">
       @if (selectedUser) {
-      <app-recive-user-names u [nameSend]="selectedUser.name" />
+      <app-recive-user-names [userId]="selectedUser.id" [nameSend]="selectedUser.name" />
       } @else {
         <p>No User Selected</p>
       }

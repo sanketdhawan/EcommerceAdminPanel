@@ -1,5 +1,6 @@
 import { Component, EventEmitter, input, Input, Output } from '@angular/core';
-import { TasksComponent } from "../tasks/tasks.component";
+import { TasksComponent } from "./tasks/tasks.component";
+import { dummyTasks } from '../../data/userdata/users';
 
 @Component({
   selector: 'app-recive-user-names',
@@ -9,8 +10,21 @@ import { TasksComponent } from "../tasks/tasks.component";
   styleUrl: './recive-user-names.component.scss',
 })
 export class ReciveUserNamesComponent {
-  // @Input({ required: true }) nameSend!: String;
+  @Input({ required: true }) userId!: String;
 
   nameSend = input<string>();
+
+  tasks = dummyTasks;
+  
+
+  get selectedUsersTasks(){
+    return this.tasks.filter((task)=> task.userId === task.userId)
+}
+  
+ngAfterViewChecked(): void {
+  //Called after every check of the component's view. Applies to components only.
+  //Add 'implements AfterViewChecked' to the class.
+  console.log(this.userId)
+}
 
 }
