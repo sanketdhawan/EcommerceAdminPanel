@@ -1,2 +1,5 @@
 <h2>{{ nameSend() }}' Tasks List</h2>
- <app-tasks  />
+
+@for(task of selectedUsersTasks; track task.id){
+<app-tasks [filteredTasks]="task" />
+}

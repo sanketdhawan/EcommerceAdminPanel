@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { dummyTasks } from '../../../data/userdata/users';
+import { type Task } from './task.model';
 @Component({
   selector: 'app-tasks',
   standalone: true,
@@ -8,14 +8,5 @@ import { dummyTasks } from '../../../data/userdata/users';
   styleUrl: './tasks.component.scss',
 })
 export class TasksComponent {
-  tasks = dummyTasks;
-
-  @Input() task!: string;
-  @Input() userId!: string;
-
-
-  ngAfterViewChecked(): void {
-    console.log(this.task)
-  }
-
+  @Input() filteredTasks!: Task;
 }
